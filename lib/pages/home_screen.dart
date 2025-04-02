@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reserva_hub/pages/comunicados_screen.dart';
 import 'package:reserva_hub/pages/financeiro_screen.dart';
+import 'package:reserva_hub/pages/ocorrencia_screen.dart';
 import 'espacos_page.dart';
 import 'reservas_screen.dart';
 
@@ -17,9 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
   // Telas correspondentes a cada aba
   final List<Widget> _screens = [
     EspacosPage(),
-    const ReservasScreen(),
+    // const ReservasScreen(),
     const ComunicadosScreen(),
     const FinanceiroScreen(),
+    const OcorrenciaScreen()
   ];
 
   @override
@@ -35,10 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.home),
             label: 'Espaços',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: 'Reservas',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.calendar_today),
+          //   label: 'Reservas',
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notification_add),
             label: 'Comunicados',
@@ -46,6 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.monetization_on),
             label: 'Financeiro',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.report_problem_outlined),
+            label: 'Ocorrencia',
           ),
         ],
       ),

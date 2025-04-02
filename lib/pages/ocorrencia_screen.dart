@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FinanceiroScreen extends StatelessWidget {
-  const FinanceiroScreen({super.key});
+class OcorrenciaScreen extends StatelessWidget {
+  const OcorrenciaScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class FinanceiroScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.monetization_on, size: 50, color: Colors.red),
+                Icon(Icons.report_problem_outlined, size: 50, color: Colors.red),
                 SizedBox(height: 10),
                 Text(
                   'Financeiro',

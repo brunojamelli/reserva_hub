@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../repositories/espaco_repository.dart';
 import '../models/espaco_model.dart';
-import '../widgets/espaco_card.dart'; // Opcional
+import '../widgets/espaco_card.dart';
 
 class EspacosPage extends StatefulWidget {
   @override
@@ -21,7 +21,10 @@ class _EspacosPageState extends State<EspacosPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Espaços Disponíveis')),
+      appBar: AppBar(
+        title: Text('Reserva Hub'),
+        centerTitle: true,
+      ),
       body: FutureBuilder<List<Espaco>>(
         future: _futureEspacos,
         builder: (context, snapshot) {
@@ -30,12 +33,31 @@ class _EspacosPageState extends State<EspacosPage> {
           } else if (snapshot.hasError) {
             return Center(child: Text('Erro: ${snapshot.error}'));
           } else {
-            return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
-                final espaco = snapshot.data![index];
-                return EspacoCard(espaco: espaco); // Ou ListTile direto
-              },
+            return Column(
+              children: [
+                // Texto centralizado antes da ListView
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    'Selecione um espaço para reservar',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                // ListView expandida para ocupar o resto do espaço
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      final espaco = snapshot.data![index];
+                      return EspacoCard(espaco: espaco);
+                    },
+                  ),
+                ),
+              ],
             );
           }
         },
