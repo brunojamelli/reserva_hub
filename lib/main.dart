@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'pages/espacos_page.dart'; // Importe a página de espaços
+import 'package:reserva_hub/pages/home_screen.dart';
+import 'pages/espacos_page.dart';
+import 'pages/reservas_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ReservaHub',
       theme: ThemeData(
-        primarySwatch: Colors.blue, // Cor principal do app
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.blue,
       ),
-      home: EspacosPage(), // Define EspacosPage como tela inicial
-      debugShowCheckedModeBanner: false, // Remove o banner "Debug"
+      home: const HomeScreen(), // Tela com BottomNavigationBar
+      debugShowCheckedModeBanner: false,
     );
   }
 }

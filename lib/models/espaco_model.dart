@@ -1,5 +1,5 @@
 class Espaco {
-  final int id;
+  final String id;
   final String nome;
   final String tipo;
   final List<String> recursos;
@@ -9,11 +9,12 @@ class Espaco {
     required this.nome,
     required this.tipo,
     required this.recursos,
+    
   });
 
   factory Espaco.fromJson(Map<String, dynamic> json) {
     return Espaco(
-      id: json['id'],
+      id: json['id'] as String, 
       nome: json['nome'],
       tipo: json['tipo'],
       recursos: List<String>.from(json['recursos']),
