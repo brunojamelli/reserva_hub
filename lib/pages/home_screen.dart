@@ -5,55 +5,102 @@ import 'package:reserva_hub/pages/ocorrencia_screen.dart';
 import 'espacos_page.dart';
 import 'reservas_screen.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0;
-
-  // Telas correspondentes a cada aba
-  final List<Widget> _screens = [
-    EspacosPage(),
-    // const ReservasScreen(),
-    const ComunicadosScreen(),
-    const FinanceiroScreen(),
-    const OcorrenciaScreen()
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex], // Exibe a tela atual
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: (index) => setState(() => _currentIndex = index),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Espaços',
+      appBar: AppBar(
+        title: const Text('ReservaHub'),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: GridView.count(
+          crossAxisCount: 2, // 2 cards por linha
+          crossAxisSpacing: 16,
+          mainAxisSpacing: 16,
+          children: [
+            // Card para Espaços
+            _buildMenuCard(
+              context,
+              icon: Icons.home,
+              title: 'Espaços',
+              color: Colors.blue,
+              destination: EspacosPage(),
+            ),
+            
+            // Card para Comunicados
+            _buildMenuCard(
+              context,
+              icon: Icons.notification_add,
+              title: 'Comunicados',
+              color: Colors.green,
+              destination: const ComunicadosScreen(),
+            ),
+            
+            // Card para Financeiro
+            _buildMenuCard(
+              context,
+              icon: Icons.monetization_on,
+              title: 'Financeiro',
+              color: Colors.orange,
+              destination: const FinanceiroScreen(),
+            ),
+            
+            // Card para Ocorrências
+            _buildMenuCard(
+              context,
+              icon: Icons.report_problem_outlined,
+              title: 'Ocorrências',
+              color: Colors.red,
+              destination: const OcorrenciaScreen(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMenuCard(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required Color color,
+    required Widget destination,
+  }) {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => destination),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 40, color: color),
+              const SizedBox(height: 12),
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: color,
+                ),
+              ),
+            ],
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.calendar_today),
-          //   label: 'Reservas',
-          // ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notification_add),
-            label: 'Comunicados',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.monetization_on),
-            label: 'Financeiro',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.report_problem_outlined),
-            label: 'Ocorrencia',
-          ),
-        ],
+        ),
       ),
     );
   }
