@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reserva_hub/pages/comunicados_screen.dart';
+import 'package:reserva_hub/pages/financeiro_screen.dart';
 import 'espacos_page.dart';
 import 'reservas_screen.dart';
 
@@ -18,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     EspacosPage(),
     const ReservasScreen(),
     const ComunicadosScreen(),
+    const FinanceiroScreen(),
   ];
 
   @override
@@ -25,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: _screens[_currentIndex], // Exibe a tela atual
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
         items: const [
@@ -39,6 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.notification_add),
             label: 'Comunicados',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.monetization_on),
+            label: 'Financeiro',
           ),
         ],
       ),
