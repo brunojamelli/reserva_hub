@@ -1,61 +1,97 @@
 import 'package:flutter/material.dart';
+import '../repositories/comunicado_repository.dart';
+import '../models/comunicado_model.dart';
 
-class ComunicadosScreen extends StatelessWidget {
+class ComunicadosScreen extends StatefulWidget {
   const ComunicadosScreen({super.key});
+
+  @override
+  State<ComunicadosScreen> createState() => _ComunicadosScreenState();
+}
+
+class _ComunicadosScreenState extends State<ComunicadosScreen> {
+  final ComunicadoRepository _repository = ComunicadoRepository();
+  late Future<List<Comunicado>> _futureComunicados;
+
+  @override
+  void initState() {
+    super.initState();
+    _futureComunicados = _repository.fetchComunicados();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Reserva Hub'),
+        title: const Text('Comunicados'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          // Cabeçalho centralizado
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.notification_add, size: 50, color: Colors.blue),
-                SizedBox(height: 10),
-                Text(
-                  'Comunicados',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          
-          // ListView separada
-          Expanded(
-            child: ListView.builder(
-              itemCount: 10, // Número temporário de itens
+      body: FutureBuilder<List<Comunicado>>(
+        future: _futureComunicados,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Erro: ${snapshot.error}'));
+          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return const Center(child: Text('Nenhum comunicado disponível'));
+          } else {
+            return ListView.builder(
+              padding: const EdgeInsets.all(8),
+              itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
+                final comunicado = snapshot.data![index];
                 return Card(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                    vertical: 8.0,
-                  ),
+                  elevation: 2,
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  color: comunicado.lido ? Colors.white : Colors.blue[50],
                   child: ListTile(
-                    leading: const Icon(Icons.notifications),
-                    title: Text('Comunicado ${index + 1}'),
-                    subtitle: const Text('Descrição do comunicado...'),
-                    trailing: const Icon(Icons.arrow_forward),
+                    leading: _getPriorityIcon(comunicado.prioridade),
+                    title: Text(
+                      comunicado.titulo,
+                      style: TextStyle(
+                        fontWeight: comunicado.lido ? FontWeight.normal : FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(comunicado.mensagem),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Enviado em: ${_formatDate(comunicado.dataEnvio)}',
+                          style: const TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
+                    trailing: comunicado.lido 
+                        ? null 
+                        : const Icon(Icons.circle, color: Colors.blue, size: 12),
                     onTap: () {
-                      // Ação ao clicar no item
+                      // Navegar para detalhes do comunicado
                     },
                   ),
                 );
               },
-            ),
-          ),
-        ],
+            );
+          }
+        },
       ),
     );
+  }
+
+  Icon _getPriorityIcon(String prioridade) {
+    switch (prioridade.toLowerCase()) {
+      case 'alta':
+        return const Icon(Icons.warning_amber, color: Colors.red);
+      case 'media':
+        return const Icon(Icons.warning_amber, color: Colors.orange);
+      default:
+        return const Icon(Icons.info_outline, color: Colors.blue);
+    }
+  }
+
+  String _formatDate(DateTime date) {
+    return '${date.day}/${date.month}/${date.year} ${date.hour}:${date.minute.toString().padLeft(2, '0')}';
   }
 }

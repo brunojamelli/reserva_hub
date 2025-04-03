@@ -68,6 +68,72 @@
         "categoria": "manutenção",
         "lido_por": [1],
         "anexo": "base64_ou_url"
+      },
+      {
+        "id": "2",
+        "titulo": "Reunião de Condomínio",
+        "mensagem": "Convocamos todos os moradores para a assembleia mensal no dia 15/05 às 19h no salão de festas.",
+        "data_envio": "2023-05-08T10:15:00Z",
+        "id_remetente": 1,
+        "prioridade": "media",
+        "categoria": "administrativo",
+        "lido_por": [1, 2, 5],
+        "anexo": "https://exemplo.com/ata.pdf"
+      },
+      {
+        "id": "3",
+        "titulo": "Área da Piscina Interditada",
+        "mensagem": "A piscina estará interditada para limpeza técnica nesta quarta-feira (10/05) das 8h às 14h.",
+        "data_envio": "2023-05-07T16:45:00Z",
+        "id_remetente": 3,
+        "prioridade": "media",
+        "categoria": "áreas comuns",
+        "lido_por": [],
+        "anexo": null
+      },
+      {
+        "id": "4",
+        "titulo": "Atualização da Taxa Condominial",
+        "mensagem": "Informamos que a taxa condominial do mês de junho terá reajuste de 5% conforme aprovado na última assembleia.",
+        "data_envio": "2023-05-05T11:20:00Z",
+        "id_remetente": 1,
+        "prioridade": "baixa",
+        "categoria": "financeiro",
+        "lido_por": [4],
+        "anexo": "base64_ou_url"
+      },
+      {
+        "id": "5",
+        "titulo": "Alerta de Segurança",
+        "mensagem": "Foi identificada tentativa de acesso não autorizado na portaria na madrugada de ontem. Solicitamos que todos mantenham os acessos sempre fechados.",
+        "data_envio": "2023-05-04T08:00:00Z",
+        "id_remetente": 2,
+        "prioridade": "alta",
+        "categoria": "segurança",
+        "lido_por": [1, 2, 3, 4],
+        "anexo": null
+      },
+      {
+        "id": "6",
+        "titulo": "Novo Horário de Funcionamento do Salão",
+        "mensagem": "A partir de 01/06, o salão de festas funcionará até as 23h durante a semana e até 1h nos fins de semana.",
+        "data_envio": "2023-05-03T15:10:00Z",
+        "id_remetente": 3,
+        "prioridade": "baixa",
+        "categoria": "áreas comuns",
+        "lido_por": [5],
+        "anexo": null
+      },
+      {
+        "id": "7",
+        "titulo": "Obras no Estacionamento",
+        "mensagem": "As vagas de 101 a 110 estarão interditadas para reforma do piso entre os dias 15/05 e 20/05.",
+        "data_envio": "2023-05-02T09:30:00Z",
+        "id_remetente": 2,
+        "prioridade": "media",
+        "categoria": "manutenção",
+        "lido_por": [1, 3],
+        "anexo": "base64_ou_url"
       }
     ],
     "taxas": [
