@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
               destination: EspacosPage(),
             ),
 
-            // Card para Espaços
+            // Card para Reservas
             _buildMenuCard(
               context,
               icon: Icons.calendar_today,
