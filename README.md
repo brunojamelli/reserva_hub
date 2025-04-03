@@ -1,6 +1,6 @@
 # reserva_hub
 
-**Trabalho final da disciplina de Desenvolvimento Para Dispositivos Moveis**
+**Trabalho Final da Disciplina de Desenvolvimento Para Dispositivos Moveis**
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ npm install -g json-server
 ### pegue o ip da sua maquina
 windows
 ```bash
-ipconfig
+ip config
 ```
 
 linux
