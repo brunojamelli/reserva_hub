@@ -69,7 +69,7 @@ class _OcorrenciaScreenState extends State<OcorrenciaScreen> {
                         Text(ocorrencia.local),
                         Text(ocorrencia.descricao),
                         Text(
-                          'Registrado em: ${_formatDate(ocorrencia.dataRegistro)}',
+                          'Registrado em: ${_formatDate(ocorrencia.data_registro)}',
                           style: const TextStyle(fontSize: 12),
                         ),
                       ],

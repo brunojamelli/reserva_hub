@@ -1,12 +1,12 @@
 class Ocorrencia {
-  final int id;
+  final String id;
   final int idUsuario;
   String tipo;
   String local;
   String descricao;
-  final DateTime dataRegistro;
+  final DateTime data_registro;
   final String status;
-  final List<String> fotos;
+  List<String> fotos;
   final List<Comentario> comentarios;
 
   Ocorrencia({
@@ -15,7 +15,7 @@ class Ocorrencia {
     required this.tipo,
     required this.local,
     required this.descricao,
-    required this.dataRegistro,
+    required this.data_registro,
     required this.status,
     required this.fotos,
     required this.comentarios,
@@ -23,12 +23,12 @@ class Ocorrencia {
 
   factory Ocorrencia.fromJson(Map<String, dynamic> json) {
     return Ocorrencia(
-      id: json['id'] as int,
+      id: json['id'].toString(),
       idUsuario: json['id_usuario'],
       tipo: json['tipo'] as String,
       local: json['local'] as String,
       descricao: json['descricao'] as String,
-      dataRegistro: DateTime.parse(json['data_registro']),
+      data_registro: DateTime.parse(json['data_registro']),
       status: json['status'],
       fotos: List<String>.from(json['fotos']),
       comentarios: (json['comentarios'] as List)

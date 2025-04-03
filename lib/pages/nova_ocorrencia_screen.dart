@@ -24,12 +24,12 @@ class _NovaOcorrenciaScreenState extends State<NovaOcorrenciaScreen> {
   ];
 
   final _ocorrencia = Ocorrencia(
-    id: 1,
+    id: '1',
     idUsuario: 1, // Substituir pelo ID do usuário logado
     tipo: '',
     local: '',
     descricao: '',
-    dataRegistro: DateTime.now(),
+    data_registro: DateTime.now(),
     status: 'pendente',
     fotos: [],
     comentarios: [],
