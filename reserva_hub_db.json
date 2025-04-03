@@ -151,6 +151,51 @@
           "limpeza": 200.00,
           "segurança": 150.00
         }
+      },
+      {
+        "id": 2,
+        "id_usuario": 1,
+        "mes_referencia": "06/2023",
+        "valor": 520,
+        "vencimento": "2023-06-10",
+        "status": "pago",
+        "data_pagamento": "2023-06-07",
+        "codigo_barras": "2345678901234567890123456789012345678901",
+        "detalhes": {
+          "fundo_reserva": 156,
+          "limpeza": 208,
+          "segurança": 156
+        }
+      },
+      {
+        "id": 3,
+        "id_usuario": 1,
+        "mes_referencia": "07/2023",
+        "valor": 530,
+        "vencimento": "2023-07-10",
+        "status": "pendente",
+        "data_pagamento": null,
+        "codigo_barras": "3456789012345678901234567890123456789012",
+        "detalhes": {
+          "fundo_reserva": 159,
+          "limpeza": 212,
+          "segurança": 159
+        }
+      },
+      {
+        "id": 4,
+        "id_usuario": 1,
+        "mes_referencia": "08/2023",
+        "valor": 540,
+        "vencimento": "2023-08-10",
+        "status": "pendente",
+        "data_pagamento": null,
+        "codigo_barras": "4567890123456789012345678901234567890123",
+        "detalhes": {
+          "fundo_reserva": 162,
+          "limpeza": 216,
+          "segurança": 162
+        }
       }
     ],
     "ocorrencias": [
