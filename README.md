@@ -1,16 +1,50 @@
 # reserva_hub
 
-A new Flutter project.
+**Trabalho final da disciplina de Desenvolvimento Para Dispositivos Moveis**
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Uma plataforma que conecta moradores de condomínios com administradoras, permitindo reserva de áreas comuns, avisos e controle de despesas.
 
-A few resources to get you started if this is your first Flutter project:
+## Requisitos Funcionais
+- Cadastro e Login
+- Gestão de Áreas Comuns
+- Central de Comunicados
+- Envio de notificações
+- Controle Financeiro
+- Relatórios de Ocorrências
+## Como executar o projeto ?
+### caso não tenha instalado, instale o json-server
+```bash
+npm install -g json-server
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### pegue o ip da sua maquina
+windows
+```bash
+ipconfig
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+linux
+```bash
+if config
+```
+
+### Execute o json-server
+```
+json-server --watch reserva_hub_db.json --host ip_maquina --port 3000
+```
+
+### Baixe as dependencias
+```bash
+flutter pub get
+```
+
+### Execute o Projeto
+```bash
+flutter run
+```
+---
+
+## Equipe
+Bruno Jamelli e Cintia Nunes
