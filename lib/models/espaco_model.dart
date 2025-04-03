@@ -14,7 +14,7 @@ class Espaco {
 
   factory Espaco.fromJson(Map<String, dynamic> json) {
     return Espaco(
-      id: json['id'] as String, 
+      id: json['id'].toString(),
       nome: json['nome'],
       tipo: json['tipo'],
       recursos: List<String>.from(json['recursos']),
