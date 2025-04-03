@@ -1,5 +1,5 @@
 class Financeiro {
-  final int id;
+  final String id;
   final int idUsuario;
   final String mesReferencia;
   final double valor;
@@ -23,7 +23,7 @@ class Financeiro {
 
   factory Financeiro.fromJson(Map<String, dynamic> json) {
     return Financeiro(
-      id: json['id'] as int,
+      id: json['id'].toString(),
       idUsuario: json['id_usuario'] as int,
       mesReferencia: json['mes_referencia'] as String,
       valor: (json['valor'] as num).toDouble(),

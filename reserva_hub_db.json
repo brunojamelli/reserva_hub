@@ -232,30 +232,12 @@
   ],
   "ocorrencias": [
     {
-      "id": "7a00",
-      "id_usuario": 1,
-      "tipo": "Elétrico",
-      "local": "teste",
-      "descricao": "0000",
-      "fotos": [],
-      "data_registro": "2023-05-04T08:30:00Z"
-    },
-    {
-      "id": "b868",
-      "id_usuario": 1,
-      "tipo": "Elétrico",
-      "local": "teste",
-      "descricao": "0000",
-      "fotos": [],
-      "data_registro": "2023-05-05T08:30:00Z"
-    },
-    {
-      "id": "7a02",
+      "id": 1,
       "id_usuario": 1,
       "tipo": "hidráulico",
       "local": "Hall do bloco A",
       "descricao": "Vazamento no banheiro do 1º andar",
-      "data_registro": "2023-05-06T08:30:00Z",
+      "data_registro": "2023-05-05T08:30:00Z",
       "status": "pendente",
       "fotos": [
         "base64_ou_url1",
@@ -268,17 +250,8 @@
           "data": "2023-05-05T10:15:00Z"
         }
       ]
-    },
-    {
-      "id": "425f",
-      "id_usuario": 1,
-      "tipo": "Limpeza",
-      "local": "quadra 03",
-      "descricao": "tatatata",
-      "fotos": [],
-      "data_registro": "2023-05-06T08:30:00Z"
-
     }
+    
   ],
   "configuracoes": {
     "horarios_reserva": {
