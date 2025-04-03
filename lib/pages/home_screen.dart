@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reserva_hub/pages/comunicados_screen.dart';
 import 'package:reserva_hub/pages/financeiro_screen.dart';
 import 'package:reserva_hub/pages/ocorrencia_screen.dart';
+import 'package:reserva_hub/widgets/ultimos_comunicados.dart';
 import 'espacos_page.dart';
 import 'reservas_screen.dart';
 
@@ -15,62 +16,67 @@ class HomeScreen extends StatelessWidget {
         title: const Text('ReservaHub'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: GridView.count(
-          crossAxisCount: 2, 
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
-          children: [
-            // Card para Espaços
-            _buildMenuCard(
-              context,
-              icon: Icons.home,
-              title: 'Espaços',
-              color: Colors.black,
-              destination: EspacosPage(),
-            ),
 
-            // Card para Reservas
-            _buildMenuCard(
-              context,
-              icon: Icons.calendar_today,
-              title: 'Reservas',
-              color: Colors.blue,
-              destination: ReservasScreen(),
-            ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Widget dos últimos comunicados
+            const UltimosComunicados(),
             
-            // Card para Comunicados
-            _buildMenuCard(
-              context,
-              icon: Icons.notification_add,
-              title: 'Comunicados',
-              color: Colors.green,
-              destination: const ComunicadosScreen(),
-            ),
-            
-            // Card para Financeiro
-            _buildMenuCard(
-              context,
-              icon: Icons.monetization_on,
-              title: 'Financeiro',
-              color: Colors.orange,
-              destination: const FinanceiroScreen(),
-            ),
-            
-            // Card para Ocorrências
-            _buildMenuCard(
-              context,
-              icon: Icons.report_problem_outlined,
-              title: 'Ocorrências',
-              color: Colors.red,
-              destination: const OcorrenciaScreen(),
+            // Menu principal
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: GridView.count(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                children: [
+                  _buildMenuCard(
+                    context,
+                    icon: Icons.home,
+                    title: 'Espaços',
+                    color: Colors.black,
+                    destination: EspacosPage(),
+                  ),
+                  _buildMenuCard(
+                    context,
+                    icon: Icons.calendar_today,
+                    title: 'Reservas',
+                    color: Colors.blue,
+                    destination: ReservasScreen(),
+                  ),
+                  _buildMenuCard(
+                    context,
+                    icon: Icons.notification_add,
+                    title: 'Comunicados',
+                    color: Colors.green,
+                    destination: const ComunicadosScreen(),
+                  ),
+                  _buildMenuCard(
+                    context,
+                    icon: Icons.monetization_on,
+                    title: 'Financeiro',
+                    color: Colors.orange,
+                    destination: const FinanceiroScreen(),
+                  ),
+                  _buildMenuCard(
+                    context,
+                    icon: Icons.report_problem_outlined,
+                    title: 'Ocorrências',
+                    color: Colors.red,
+                    destination: const OcorrenciaScreen(),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
   }
+
 
   Widget _buildMenuCard(
     BuildContext context, {

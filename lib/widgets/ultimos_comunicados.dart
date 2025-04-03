@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:reserva_hub/pages/comunicados_screen.dart';
 import '../repositories/comunicado_repository.dart';
 import '../models/comunicado_model.dart';
 import '../widgets/comunicado_card.dart';
+import '../pages/comunicados_screen.dart';
 
 class UltimosComunicados extends StatelessWidget {
   const UltimosComunicados({super.key});
@@ -17,11 +17,9 @@ class UltimosComunicados extends StatelessWidget {
       future: _futureComunicados,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return const SizedBox.shrink(); // Não mostra erro na home
-        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const SizedBox.shrink(); // Não mostra se não houver comunicados
+          return const SizedBox.shrink(); // Ou um loading pequeno
+        } else if (snapshot.hasError || !snapshot.hasData || snapshot.data!.isEmpty) {
+          return const SizedBox.shrink(); // Não mostra se não houver dados
         } else {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,31 +35,30 @@ class UltimosComunicados extends StatelessWidget {
                 ),
               ),
               ...snapshot.data!.map((comunicado) => Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: ComunicadoCard(
                   comunicado: comunicado,
-                  onTap: () {
-                    // Navegar para detalhes se necessário
-                  },
+                  compact: true, // Adicione esta propriedade ao seu ComunicadoCard
                 ),
               )).toList(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ComunicadosScreen(),
-                        ),
-                      );
-                    },
-                    child: const Text('Ver todos'),
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(right: 16, bottom: 16),
+              //   child: Align(
+              //     alignment: Alignment.centerRight,
+              //     child: TextButton(
+              //       onPressed: () {
+              //         Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //             builder: (context) => const ComunicadosScreen(),
+              //           ),
+              //         );
+              //       },
+              //       child: const Text('Ver todos os comunicados'),
+              //     ),
+              //   ),
+              // ),
+              // const Divider(height: 1),
             ],
           );
         }

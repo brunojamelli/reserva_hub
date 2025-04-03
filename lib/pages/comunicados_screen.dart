@@ -17,7 +17,9 @@ class _ComunicadosScreenState extends State<ComunicadosScreen> {
   @override
   void initState() {
     super.initState();
-    _futureComunicados = _repository.fetchComunicados();
+    _futureComunicados = _repository.fetchComunicados().then((comunicados) {
+      return comunicados.reversed.toList();
+    });
   }
 
   @override
