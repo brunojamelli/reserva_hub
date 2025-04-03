@@ -21,7 +21,9 @@ class ComunicadoRepository {
 
   Future<List<Comunicado>> fetchComunicados({int limit = 0}) async {
     try {
-      final response = await _dio.get('/comunicados?_sort=data_envio&_order=desc');
+      final response = await _dio.get(
+        '/comunicados?_sort=data_envio&_order=desc${limit > 0 ? '&_limit=$limit' : ''}'
+      );
       List<Comunicado> todosComunicados = (response.data as List)
           .map((json) => Comunicado.fromJson(json))
           .toList();
