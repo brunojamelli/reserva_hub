@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GridView.count(
-          crossAxisCount: 2, // 2 cards por linha
+          crossAxisCount: 2, 
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
           children: [
@@ -27,8 +27,17 @@ class HomeScreen extends StatelessWidget {
               context,
               icon: Icons.home,
               title: 'Espaços',
-              color: Colors.blue,
+              color: Colors.black,
               destination: EspacosPage(),
+            ),
+
+            // Card para Espaços
+            _buildMenuCard(
+              context,
+              icon: Icons.calendar_today,
+              title: 'Reservas',
+              color: Colors.blue,
+              destination: ReservasScreen(),
             ),
             
             // Card para Comunicados
