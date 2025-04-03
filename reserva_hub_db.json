@@ -1,226 +1,277 @@
 {
-    "usuarios": [
-      {
-        "id": 1,
-        "nome": "João Silva",
-        "email": "joao@email.com",
-        "senha": "senha123",
-        "apartamento": "101A",
-        "bloco": "A",
-        "tipo": "morador",
-        "telefone": "(11) 99999-9999",
-        "token_notificacao": "abc123"
-      },
-      {
-        "id": 2,
-        "nome": "Administração",
-        "email": "admin@condominio.com",
-        "senha": "admin123",
-        "tipo": "admin"
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "email": "joao@email.com",
+      "senha": "senha123",
+      "apartamento": "101A",
+      "bloco": "A",
+      "tipo": "morador",
+      "telefone": "(11) 99999-9999",
+      "token_notificacao": "abc123"
+    },
+    {
+      "id": 2,
+      "nome": "Administração",
+      "email": "admin@condominio.com",
+      "senha": "admin123",
+      "tipo": "admin"
+    }
+  ],
+  "espacos": [
+    {
+      "id": 1,
+      "nome": "Salão de Festas",
+      "tipo": "salão",
+      "foto": "base64_ou_url",
+      "capacidade": 100,
+      "recursos": [
+        "mesas",
+        "cozinha",
+        "frigobar",
+        "wi-fi"
+      ],
+      "regras": "Uso até 22h. Limpeza obrigatória.",
+      "dias_indisponiveis": [
+        "2023-06-10",
+        "2023-06-15"
+      ],
+      "horario_abertura": "08:00",
+      "horario_fechamento": "22:00"
+    },
+    {
+      "id": 2,
+      "nome": "Quadra Poliesportiva",
+      "tipo": "quadra",
+      "foto": "base64_ou_url",
+      "capacidade": 20,
+      "recursos": [
+        "rede vôlei",
+        "traves futebol"
+      ],
+      "regras": "Uso de calçados esportivos."
+    }
+  ],
+  "reservas": [
+    {
+      "id": 1,
+      "id_espaco": 1,
+      "id_usuario": 1,
+      "data": "2023-06-12",
+      "hora_inicio": "19:00",
+      "hora_fim": "22:00",
+      "nome_evento": "Festa de Aniversário",
+      "convidados": [
+        "Maria Souza",
+        "Carlos Lima"
+      ],
+      "telefone_contato": "(11) 99999-9999",
+      "status": "confirmada",
+      "data_reserva": "2023-05-20T14:30:00Z"
+    }
+  ],
+  "comunicados": [
+    {
+      "id": 1,
+      "titulo": "Manutenção do Elevador",
+      "mensagem": "O elevador do bloco A estará em manutenção...",
+      "data_envio": "2023-05-10T09:00:00Z",
+      "id_remetente": 2,
+      "prioridade": "alta",
+      "categoria": "manutenção",
+      "lido_por": [
+        1
+      ],
+      "anexo": "base64_ou_url"
+    },
+    {
+      "id": "2",
+      "titulo": "Reunião de Condomínio",
+      "mensagem": "Convocamos todos os moradores para a assembleia mensal no dia 15/05 às 19h no salão de festas.",
+      "data_envio": "2023-05-08T10:15:00Z",
+      "id_remetente": 1,
+      "prioridade": "media",
+      "categoria": "administrativo",
+      "lido_por": [
+        1,
+        2,
+        5
+      ],
+      "anexo": "https://exemplo.com/ata.pdf"
+    },
+    {
+      "id": "3",
+      "titulo": "Área da Piscina Interditada",
+      "mensagem": "A piscina estará interditada para limpeza técnica nesta quarta-feira (10/05) das 8h às 14h.",
+      "data_envio": "2023-05-07T16:45:00Z",
+      "id_remetente": 3,
+      "prioridade": "media",
+      "categoria": "áreas comuns",
+      "lido_por": [],
+      "anexo": null
+    },
+    {
+      "id": "4",
+      "titulo": "Atualização da Taxa Condominial",
+      "mensagem": "Informamos que a taxa condominial do mês de junho terá reajuste de 5% conforme aprovado na última assembleia.",
+      "data_envio": "2023-05-05T11:20:00Z",
+      "id_remetente": 1,
+      "prioridade": "baixa",
+      "categoria": "financeiro",
+      "lido_por": [
+        4
+      ],
+      "anexo": "base64_ou_url"
+    },
+    {
+      "id": "5",
+      "titulo": "Alerta de Segurança",
+      "mensagem": "Foi identificada tentativa de acesso não autorizado na portaria na madrugada de ontem. Solicitamos que todos mantenham os acessos sempre fechados.",
+      "data_envio": "2023-05-04T08:00:00Z",
+      "id_remetente": 2,
+      "prioridade": "alta",
+      "categoria": "segurança",
+      "lido_por": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "anexo": null
+    },
+    {
+      "id": "6",
+      "titulo": "Novo Horário de Funcionamento do Salão",
+      "mensagem": "A partir de 01/06, o salão de festas funcionará até as 23h durante a semana e até 1h nos fins de semana.",
+      "data_envio": "2023-05-03T15:10:00Z",
+      "id_remetente": 3,
+      "prioridade": "baixa",
+      "categoria": "áreas comuns",
+      "lido_por": [
+        5
+      ],
+      "anexo": null
+    },
+    {
+      "id": "7",
+      "titulo": "Obras no Estacionamento",
+      "mensagem": "As vagas de 101 a 110 estarão interditadas para reforma do piso entre os dias 15/05 e 20/05.",
+      "data_envio": "2023-05-02T09:30:00Z",
+      "id_remetente": 2,
+      "prioridade": "media",
+      "categoria": "manutenção",
+      "lido_por": [
+        1,
+        3
+      ],
+      "anexo": "base64_ou_url"
+    }
+  ],
+  "taxas": [
+    {
+      "id": 1,
+      "id_usuario": 1,
+      "mes_referencia": "05/2023",
+      "valor": 500,
+      "vencimento": "2023-05-10",
+      "status": "pago",
+      "data_pagamento": "2023-05-08",
+      "codigo_barras": "1234567890123456789012345678901234567890",
+      "detalhes": {
+        "fundo_reserva": 150,
+        "limpeza": 200,
+        "segurança": 150
       }
-    ],
-    "espacos": [
-      {
-        "id": 1,
-        "nome": "Salão de Festas",
-        "tipo": "salão",
-        "foto": "base64_ou_url",
-        "capacidade": 100,
-        "recursos": ["mesas", "cozinha", "frigobar", "wi-fi"],
-        "regras": "Uso até 22h. Limpeza obrigatória.",
-        "dias_indisponiveis": ["2023-06-10", "2023-06-15"],
-        "horario_abertura": "08:00",
-        "horario_fechamento": "22:00"
-      },
-      {
-        "id": 2,
-        "nome": "Quadra Poliesportiva",
-        "tipo": "quadra",
-        "foto": "base64_ou_url",
-        "capacidade": 20,
-        "recursos": ["rede vôlei", "traves futebol"],
-        "regras": "Uso de calçados esportivos."
+    },
+    {
+      "id": 2,
+      "id_usuario": 1,
+      "mes_referencia": "06/2023",
+      "valor": 520,
+      "vencimento": "2023-06-10",
+      "status": "pago",
+      "data_pagamento": "2023-06-07",
+      "codigo_barras": "2345678901234567890123456789012345678901",
+      "detalhes": {
+        "fundo_reserva": 156,
+        "limpeza": 208,
+        "segurança": 156
       }
-    ],
-    "reservas": [
-      {
-        "id": 1,
-        "id_espaco": 1,
-        "id_usuario": 1,
-        "data": "2023-06-12",
-        "hora_inicio": "19:00",
-        "hora_fim": "22:00",
-        "nome_evento": "Festa de Aniversário",
-        "convidados": ["Maria Souza", "Carlos Lima"],
-        "telefone_contato": "(11) 99999-9999",
-        "status": "confirmada",
-        "data_reserva": "2023-05-20T14:30:00Z"
+    },
+    {
+      "id": 3,
+      "id_usuario": 1,
+      "mes_referencia": "07/2023",
+      "valor": 530,
+      "vencimento": "2023-07-10",
+      "status": "pendente",
+      "data_pagamento": null,
+      "codigo_barras": "3456789012345678901234567890123456789012",
+      "detalhes": {
+        "fundo_reserva": 159,
+        "limpeza": 212,
+        "segurança": 159
       }
-    ],
-    "comunicados": [
-      {
-        "id": 1,
-        "titulo": "Manutenção do Elevador",
-        "mensagem": "O elevador do bloco A estará em manutenção...",
-        "data_envio": "2023-05-10T09:00:00Z",
-        "id_remetente": 2,
-        "prioridade": "alta",
-        "categoria": "manutenção",
-        "lido_por": [1],
-        "anexo": "base64_ou_url"
-      },
-      {
-        "id": "2",
-        "titulo": "Reunião de Condomínio",
-        "mensagem": "Convocamos todos os moradores para a assembleia mensal no dia 15/05 às 19h no salão de festas.",
-        "data_envio": "2023-05-08T10:15:00Z",
-        "id_remetente": 1,
-        "prioridade": "media",
-        "categoria": "administrativo",
-        "lido_por": [1, 2, 5],
-        "anexo": "https://exemplo.com/ata.pdf"
-      },
-      {
-        "id": "3",
-        "titulo": "Área da Piscina Interditada",
-        "mensagem": "A piscina estará interditada para limpeza técnica nesta quarta-feira (10/05) das 8h às 14h.",
-        "data_envio": "2023-05-07T16:45:00Z",
-        "id_remetente": 3,
-        "prioridade": "media",
-        "categoria": "áreas comuns",
-        "lido_por": [],
-        "anexo": null
-      },
-      {
-        "id": "4",
-        "titulo": "Atualização da Taxa Condominial",
-        "mensagem": "Informamos que a taxa condominial do mês de junho terá reajuste de 5% conforme aprovado na última assembleia.",
-        "data_envio": "2023-05-05T11:20:00Z",
-        "id_remetente": 1,
-        "prioridade": "baixa",
-        "categoria": "financeiro",
-        "lido_por": [4],
-        "anexo": "base64_ou_url"
-      },
-      {
-        "id": "5",
-        "titulo": "Alerta de Segurança",
-        "mensagem": "Foi identificada tentativa de acesso não autorizado na portaria na madrugada de ontem. Solicitamos que todos mantenham os acessos sempre fechados.",
-        "data_envio": "2023-05-04T08:00:00Z",
-        "id_remetente": 2,
-        "prioridade": "alta",
-        "categoria": "segurança",
-        "lido_por": [1, 2, 3, 4],
-        "anexo": null
-      },
-      {
-        "id": "6",
-        "titulo": "Novo Horário de Funcionamento do Salão",
-        "mensagem": "A partir de 01/06, o salão de festas funcionará até as 23h durante a semana e até 1h nos fins de semana.",
-        "data_envio": "2023-05-03T15:10:00Z",
-        "id_remetente": 3,
-        "prioridade": "baixa",
-        "categoria": "áreas comuns",
-        "lido_por": [5],
-        "anexo": null
-      },
-      {
-        "id": "7",
-        "titulo": "Obras no Estacionamento",
-        "mensagem": "As vagas de 101 a 110 estarão interditadas para reforma do piso entre os dias 15/05 e 20/05.",
-        "data_envio": "2023-05-02T09:30:00Z",
-        "id_remetente": 2,
-        "prioridade": "media",
-        "categoria": "manutenção",
-        "lido_por": [1, 3],
-        "anexo": "base64_ou_url"
-      }
-    ],
-    "taxas": [
-      {
-        "id": 1,
-        "id_usuario": 1,
-        "mes_referencia": "05/2023",
-        "valor": 500.00,
-        "vencimento": "2023-05-10",
-        "status": "pago",
-        "data_pagamento": "2023-05-08",
-        "codigo_barras": "1234567890123456789012345678901234567890",
-        "detalhes": {
-          "fundo_reserva": 150.00,
-          "limpeza": 200.00,
-          "segurança": 150.00
-        }
-      },
-      {
-        "id": 2,
-        "id_usuario": 1,
-        "mes_referencia": "06/2023",
-        "valor": 520,
-        "vencimento": "2023-06-10",
-        "status": "pago",
-        "data_pagamento": "2023-06-07",
-        "codigo_barras": "2345678901234567890123456789012345678901",
-        "detalhes": {
-          "fundo_reserva": 156,
-          "limpeza": 208,
-          "segurança": 156
-        }
-      },
-      {
-        "id": 3,
-        "id_usuario": 1,
-        "mes_referencia": "07/2023",
-        "valor": 530,
-        "vencimento": "2023-07-10",
-        "status": "pendente",
-        "data_pagamento": null,
-        "codigo_barras": "3456789012345678901234567890123456789012",
-        "detalhes": {
-          "fundo_reserva": 159,
-          "limpeza": 212,
-          "segurança": 159
-        }
-      },
-      {
-        "id": 4,
-        "id_usuario": 1,
-        "mes_referencia": "08/2023",
-        "valor": 540,
-        "vencimento": "2023-08-10",
-        "status": "pendente",
-        "data_pagamento": null,
-        "codigo_barras": "4567890123456789012345678901234567890123",
-        "detalhes": {
-          "fundo_reserva": 162,
-          "limpeza": 216,
-          "segurança": 162
-        }
-      }
-    ],
-    "ocorrencias": [
-      {
-        "id": 1,
-        "id_usuario": 1,
-        "tipo": "hidráulico",
-        "local": "Hall do bloco A",
-        "descricao": "Vazamento no banheiro do 1º andar",
-        "data_registro": "2023-05-05T08:30:00Z",
-        "status": "pendente",
-        "fotos": ["base64_ou_url1", "base64_ou_url2"],
-        "comentarios": [
-          {
-            "id_admin": 2,
-            "mensagem": "Chamamos o encanador.",
-            "data": "2023-05-05T10:15:00Z"
-          }
-        ]
-      }
-    ],
-    "configuracoes": {
-      "horarios_reserva": {
-        "minimo_antecedencia_dias": 2,
-        "maximo_antecedencia_meses": 3
+    },
+    {
+      "id": 4,
+      "id_usuario": 1,
+      "mes_referencia": "08/2023",
+      "valor": 540,
+      "vencimento": "2023-08-10",
+      "status": "pendente",
+      "data_pagamento": null,
+      "codigo_barras": "4567890123456789012345678901234567890123",
+      "detalhes": {
+        "fundo_reserva": 162,
+        "limpeza": 216,
+        "segurança": 162
       }
     }
+  ],
+  "ocorrencias": [
+    {
+      "id": 1,
+      "id_usuario": 1,
+      "tipo": "hidráulico",
+      "local": "Hall do bloco A",
+      "descricao": "Vazamento no banheiro do 1º andar",
+      "data_registro": "2023-05-05T08:30:00Z",
+      "status": "pendente",
+      "fotos": [
+        "base64_ou_url1",
+        "base64_ou_url2"
+      ],
+      "comentarios": [
+        {
+          "id_admin": 2,
+          "mensagem": "Chamamos o encanador.",
+          "data": "2023-05-05T10:15:00Z"
+        }
+      ]
+    },
+    {
+      "id": "7a00",
+      "id_usuario": 1,
+      "tipo": "Elétrico",
+      "local": "teste",
+      "descricao": "0000",
+      "fotos": []
+    },
+    {
+      "id": "b868",
+      "id_usuario": 1,
+      "tipo": "Elétrico",
+      "local": "teste",
+      "descricao": "0000",
+      "fotos": []
+    }
+  ],
+  "configuracoes": {
+    "horarios_reserva": {
+      "minimo_antecedencia_dias": 2,
+      "maximo_antecedencia_meses": 3
+    }
   }
+}
