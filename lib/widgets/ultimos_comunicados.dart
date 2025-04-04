@@ -11,7 +11,7 @@ class UltimosComunicados extends StatelessWidget {
   Widget build(BuildContext context) {
     final ComunicadoRepository _repository = ComunicadoRepository();
     final Future<List<Comunicado>> _futureComunicados = 
-        _repository.fetchComunicados(limit: 3);
+        _repository.fetchComunicados();
 
     return FutureBuilder<List<Comunicado>>(
       future: _futureComunicados,

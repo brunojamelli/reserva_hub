@@ -65,6 +65,10 @@ class _ComunicadosScreenState extends State<ComunicadosScreen> {
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(child: Text('Nenhum comunicado disponível'));
           } else {
+            
+            final comunicadosOrdenados = snapshot.data!
+            ..sort((a, b) => b.dataEnvio.compareTo(a.dataEnvio));
+
             return RefreshIndicator(
               onRefresh: () async {
                 setState(() {
@@ -75,7 +79,7 @@ class _ComunicadosScreenState extends State<ComunicadosScreen> {
                 padding: const EdgeInsets.all(8),
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  final comunicado = snapshot.data![index];
+                  final comunicado = comunicadosOrdenados[index];
                   return ComunicadoCard(
                     comunicado: comunicado,
                     onTap: () {
