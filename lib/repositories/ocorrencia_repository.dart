@@ -23,7 +23,10 @@ class OcorrenciaRepository {
       );
       return Ocorrencia.fromJson(response.data);
     } on DioException catch (e) {
-      throw Exception('Falha ao criar ocorrência: ${e.message}');
+      print('Erro na requisição: ${e.response?.statusCode}');
+      print('Corpo do erro: ${e.response?.data}');
+      print('Mensagem: ${e.message}');
+      throw Exception('Falha ao criar ocorrência');
     }
   }
 }

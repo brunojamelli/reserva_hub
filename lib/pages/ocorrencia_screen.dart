@@ -61,7 +61,7 @@ class _OcorrenciaScreenState extends State<OcorrenciaScreen> {
                   elevation: 2,
                   margin: const EdgeInsets.symmetric(vertical: 8),
                   child: ListTile(
-                    leading: _getStatusIcon(ocorrencia.status),
+                    leading: _getStatusIcon(ocorrencia.status ?? 'Sem status'),
                     title: Text(ocorrencia.tipo),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +69,7 @@ class _OcorrenciaScreenState extends State<OcorrenciaScreen> {
                         Text(ocorrencia.local),
                         Text(ocorrencia.descricao),
                         Text(
-                          'Registrado em: ${_formatDate(ocorrencia.data_registro)}',
+                          'Registrado em: ${_formatDate(ocorrencia.dataRegistro ?? DateTime.now())}',
                           style: const TextStyle(fontSize: 12),
                         ),
                       ],
@@ -85,6 +85,21 @@ class _OcorrenciaScreenState extends State<OcorrenciaScreen> {
           }
         },
       ),
+      floatingActionButton: FloatingActionButton(
+      onPressed: () async {
+        await Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const NovaOcorrenciaScreen(),
+          ),
+        );
+        setState(() {
+          _futureOcorrencias = _repository.fetchOcorrencias();
+        });
+      },
+      child: const Icon(Icons.add),
+      tooltip: 'Nova Ocorrência',
+    ),
     );
   }
 

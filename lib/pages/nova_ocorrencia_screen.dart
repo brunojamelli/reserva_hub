@@ -12,106 +12,90 @@ class NovaOcorrenciaScreen extends StatefulWidget {
 class _NovaOcorrenciaScreenState extends State<NovaOcorrenciaScreen> {
   final _formKey = GlobalKey<FormState>();
   final _repository = OcorrenciaRepository();
-  final List<String> _fotos = [];
-  
-  final _tiposOcorrencia = [
-    'Hidráulico',
-    'Elétrico',
-    'Estrutural',
-    'Limpeza',
-    'Segurança',
-    'Outros'
-  ];
 
-  final _ocorrencia = Ocorrencia(
-    id: '1',
-    idUsuario: 1, // Substituir pelo ID do usuário logado
-    tipo: '',
-    local: '',
-    descricao: '',
-    data_registro: DateTime.now(),
-    status: 'pendente',
-    fotos: [],
-    comentarios: [],
-  );
+  String? _tipo;
+  String? _local;
+  String? _descricao;
+
+  bool _isSaving = false;
+
+  Future<void> _submitForm() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    _formKey.currentState!.save();
+
+    final novaOcorrencia = Ocorrencia(
+      idUsuario: 1, // ou obtenha do login
+      tipo: _tipo!,
+      local: _local!,
+      descricao: _descricao!,
+      dataRegistro: DateTime.now(),
+      status: 'pendente',
+      fotos: [], // você pode implementar seleção de imagem depois
+      comentarios: [],
+    );
+
+    setState(() => _isSaving = true);
+
+    try {
+      await _repository.createOcorrencia(novaOcorrencia);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Ocorrência registrada com sucesso!')),
+      );
+      Navigator.pop(context);
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erro ao salvar ocorrência: $e')),
+      );
+    } finally {
+      setState(() => _isSaving = false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Nova Ocorrência'),
-      ),
-      body: SingleChildScrollView(
+      appBar: AppBar(title: Text('Nova Ocorrência')),
+      body: Padding(
         padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
             children: [
               DropdownButtonFormField<String>(
-                decoration: const InputDecoration(
-                  labelText: 'Tipo de Ocorrência',
-                  border: OutlineInputBorder(),
-                ),
-                items: _tiposOcorrencia
+                decoration: InputDecoration(labelText: 'Tipo'),
+                items: ['segurança', 'limpeza', 'outros']
                     .map((tipo) => DropdownMenuItem(
                           value: tipo,
                           child: Text(tipo),
                         ))
                     .toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _ocorrencia.tipo = value!;
-                  });
-                },
-                validator: (value) =>
-                    value == null ? 'Selecione um tipo' : null,
+                onChanged: (val) => _tipo = val,
+                validator: (val) => val == null ? 'Selecione um tipo' : null,
               ),
-              const SizedBox(height: 16),
               TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Local exato',
-                  border: OutlineInputBorder(),
-                ),
-                validator: (value) =>
-                    value == null || value.isEmpty ? 'Informe o local' : null,
-                onSaved: (value) => _ocorrencia.local = value!,
+                decoration: InputDecoration(labelText: 'Local'),
+                onSaved: (val) => _local = val,
+                validator: (val) => val!.isEmpty ? 'Informe o local' : null,
               ),
-              const SizedBox(height: 16),
               TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Descrição detalhada',
-                  border: OutlineInputBorder(),
-                ),
-                maxLines: 3,
-                validator: (value) => value == null || value.isEmpty
-                    ? 'Descreva a ocorrência'
-                    : null,
-                onSaved: (value) => _ocorrencia.descricao = value!,
+                decoration: InputDecoration(labelText: 'Descrição'),
+                maxLines: 4,
+                onSaved: (val) => _descricao = val,
+                validator: (val) => val!.isEmpty ? 'Descreva a ocorrência' : null,
               ),
-              const SizedBox(height: 16),
-              // Adicione aqui o upload de fotos se necessário
-              ElevatedButton(
-                onPressed: _submitForm,
-                child: const Text('Registrar Ocorrência'),
-              ),
+              const SizedBox(height: 20),
+              _isSaving
+                  ? CircularProgressIndicator()
+                  : ElevatedButton(
+                      onPressed: _submitForm,
+                      child: Text('Registrar Ocorrência'),
+                    ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  void _submitForm() async {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      try {
-        await _repository.createOcorrencia(_ocorrencia);
-        Navigator.pop(context, true); // Retorna true indicando sucesso
-      } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Erro ao registrar: $e')),
-        );
-      }
-    }
   }
 }

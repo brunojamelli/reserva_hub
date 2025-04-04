@@ -295,83 +295,109 @@
         }
       ]
     },
-	{
-    "id": "2",
-    "id_usuario": 3,
-    "tipo": "elétrico",
-    "local": "Sala 205 - Bloco B",
-    "descricao": "Lâmpada queimada",
-    "data_registro": "2023-05-06T09:20:00Z",
-    "status": "resolvido",
-    "fotos": [
-      "base64_ou_url3"
-    ],
-    "comentarios": [
-      {
-        "id_admin": 1,
-        "mensagem": "Lâmpada substituída.",
-        "data": "2023-05-06T11:45:00Z"
-      }
-    ]
-  },
-  {
-    "id": "3",
-    "id_usuario": 2,
-    "tipo": "mobiliário",
-    "local": "Biblioteca",
-    "descricao": "Cadeira com braço quebrado",
-    "data_registro": "2023-05-07T14:10:00Z",
-    "status": "pendente",
-    "fotos": [
-      "base64_ou_url4",
-      "base64_ou_url5"
-    ],
-    "comentarios": []
-  },
-  {
-    "id": "4",
-    "id_usuario": 5,
-    "tipo": "limpeza",
-    "local": "Cantina",
-    "descricao": "Vazamento no refrigerador",
-    "data_registro": "2023-05-08T12:30:00Z",
-    "status": "em_andamento",
-    "fotos": [
-      "base64_ou_url6"
-    ],
-    "comentarios": [
-      {
-        "id_admin": 3,
-        "mensagem": "Equipe de manutenção acionada.",
-        "data": "2023-05-08T13:15:00Z"
-      },
-      {
-        "id_admin": 3,
-        "mensagem": "Aguardando peça de reposição.",
-        "data": "2023-05-09T10:00:00Z"
-      }
-    ]
-  },
-  {
-    "id": "5",
-    "id_usuario": 4,
-    "tipo": "segurança",
-    "local": "Portão principal",
-    "descricao": "Fechadura com defeito",
-    "data_registro": "2023-05-10T07:45:00Z",
-    "status": "pendente",
-    "fotos": [
-      "base64_ou_url7",
-      "base64_ou_url8"
-    ],
-    "comentarios": [
-      {
-        "id_admin": 2,
-        "mensagem": "Verificaremos com a equipe de segurança.",
-        "data": "2023-05-10T08:30:00Z"
-      }
-    ]
-  }
+    {
+      "id": "2",
+      "id_usuario": 3,
+      "tipo": "elétrico",
+      "local": "Sala 205 - Bloco B",
+      "descricao": "Lâmpada queimada",
+      "data_registro": "2023-05-06T09:20:00Z",
+      "status": "resolvido",
+      "fotos": [
+        "base64_ou_url3"
+      ],
+      "comentarios": [
+        {
+          "id_admin": 1,
+          "mensagem": "Lâmpada substituída.",
+          "data": "2023-05-06T11:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "id_usuario": 2,
+      "tipo": "mobiliário",
+      "local": "Biblioteca",
+      "descricao": "Cadeira com braço quebrado",
+      "data_registro": "2023-05-07T14:10:00Z",
+      "status": "pendente",
+      "fotos": [
+        "base64_ou_url4",
+        "base64_ou_url5"
+      ],
+      "comentarios": []
+    },
+    {
+      "id": "4",
+      "id_usuario": 5,
+      "tipo": "limpeza",
+      "local": "Cantina",
+      "descricao": "Vazamento no refrigerador",
+      "data_registro": "2023-05-08T12:30:00Z",
+      "status": "em_andamento",
+      "fotos": [
+        "base64_ou_url6"
+      ],
+      "comentarios": [
+        {
+          "id_admin": 3,
+          "mensagem": "Equipe de manutenção acionada.",
+          "data": "2023-05-08T13:15:00Z"
+        },
+        {
+          "id_admin": 3,
+          "mensagem": "Aguardando peça de reposição.",
+          "data": "2023-05-09T10:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "id_usuario": 4,
+      "tipo": "segurança",
+      "local": "Portão principal",
+      "descricao": "Fechadura com defeito",
+      "data_registro": "2023-05-10T07:45:00Z",
+      "status": "pendente",
+      "fotos": [
+        "base64_ou_url7",
+        "base64_ou_url8"
+      ],
+      "comentarios": [
+        {
+          "id_admin": 2,
+          "mensagem": "Verificaremos com a equipe de segurança.",
+          "data": "2023-05-10T08:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "68fb",
+      "id_usuario": 1,
+      "tipo": "segurança",
+      "local": "a",
+      "descricao": "aaa",
+      "fotos": []
+    },
+    {
+      "id": null,
+      "id_usuario": 1,
+      "tipo": "outros",
+      "local": "qaaaaa",
+      "descricao": "aaaaaaa",
+      "data_registro": "2025-04-04T10:34:56.288053",
+      "fotos": []
+    },
+    {
+      "id": null,
+      "id_usuario": 1,
+      "tipo": "outros",
+      "local": "novo novo hovo",
+      "descricao": "novoocococoic",
+      "data_registro": "2025-04-04T10:35:09.291054",
+      "fotos": []
+    }
   ],
   "configuracoes": {
     "horarios_reserva": {
