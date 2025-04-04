@@ -12,6 +12,7 @@ class EspacoRepository {
           .toList();
     } on DioException catch (e) {
       throw Exception('Falha ao carregar espaços: ${e.message}');
+      print(e.message);
     }
   }
 }

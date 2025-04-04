@@ -32,11 +32,15 @@
         "frigobar",
         "wi-fi"
       ],
-      "regras": "Uso até 22h. Limpeza obrigatória.",
-      "dias_indisponiveis": [
+	  "convidados": [
+        "Jõao",
+        "Jose"
+      ],
+	  "dias_indisponiveis": [
         "2023-06-10",
         "2023-06-15"
       ],
+      "regras": "Uso até 22h. Limpeza obrigatória.",
       "horario_abertura": "08:00",
       "horario_fechamento": "22:00"
     },
@@ -50,14 +54,23 @@
         "rede vôlei",
         "traves futebol"
       ],
-      "regras": "Uso de calçados esportivos."
+	  "convidados": [
+        "Jõao",
+        "Jose"
+      ],
+	  "dias_indisponiveis": [
+        "2023-06-10",
+        "2023-06-15"
+      ],
+	  "regras": "Uso de calçados esportivos.",
+	  "horario_abertura": "08:00",
+      "horario_fechamento": "17:00"
     }
   ],
   "reservas": [
     {
       "id": "1",
       "id_espaco": 1,
-      "id_usuario": 1,
       "data": "2023-06-12",
       "hora_inicio": "19:00",
       "hora_fim": "22:00",
@@ -371,6 +384,36 @@
           "data": "2023-05-10T08:30:00Z"
         }
       ]
+    },
+    {
+      "id": "ac89",
+      "id_usuario": 1,
+      "tipo": "hidráulico",
+      "local": "um local",
+      "descricao": "descrição ",
+      "data_registro": "2025-04-04T10:50:11.117252",
+      "fotos": [],
+      "status": "pendente"
+    },
+    {
+      "id": "75b9",
+      "id_usuario": 1,
+      "tipo": "limpeza",
+      "local": "quadra ",
+      "descricao": "sopa perto da trave",
+      "data_registro": "2025-04-04T10:53:17.081485",
+      "fotos": [],
+      "status": "pendente"
+    },
+    {
+      "id": "ed0a",
+      "id_usuario": 1,
+      "tipo": "eletrico",
+      "local": "quadra 15",
+      "descricao": "queda de poste",
+      "data_registro": "2025-04-04T10:58:15.767166",
+      "fotos": [],
+      "status": "pendente"
     }
   ],
   "configuracoes": {

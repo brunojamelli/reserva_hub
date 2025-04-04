@@ -25,22 +25,22 @@ class _OcorrenciaScreenState extends State<OcorrenciaScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Central de Ocorências'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => NovaOcorrenciaScreen(),
-                ),
-              );
-              setState(() {
-                _futureOcorrencias = _repository.fetchOcorrencias();
-              });
-            },
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: const Icon(Icons.add),
+        //     onPressed: () async {
+        //       await Navigator.push(
+        //         context,
+        //         MaterialPageRoute(
+        //           builder: (context) => NovaOcorrenciaScreen(),
+        //         ),
+        //       );
+        //       setState(() {
+        //         _futureOcorrencias = _repository.fetchOcorrencias();
+        //       });
+        //     },
+        //   ),
+        // ],
       ),
       body: FutureBuilder<List<Ocorrencia>>(
         future: _futureOcorrencias,
@@ -99,6 +99,7 @@ class _OcorrenciaScreenState extends State<OcorrenciaScreen> {
       },
       child: const Icon(Icons.add),
       tooltip: 'Nova Ocorrência',
+      backgroundColor: Colors.green,
     ),
     );
   }
