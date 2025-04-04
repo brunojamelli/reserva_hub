@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:reserva_hub/models/espaco_model.dart';
 import 'package:reserva_hub/models/reserva_model.dart';
 import 'package:reserva_hub/repositories/reserva_repository.dart';
 
-class ReservaPage extends StatefulWidget {
-  const ReservaPage({super.key});
+class NovaReservaPage extends StatefulWidget {
+  final Espaco espaco;
+  const NovaReservaPage({Key? key, required this.espaco}) : super(key: key);
 
   @override
-  State<ReservaPage> createState() => _ReservaPageState();
+  State<NovaReservaPage> createState() => _ReservaPageState();
 }
 
-class _ReservaPageState extends State<ReservaPage> {
+class _ReservaPageState extends State<NovaReservaPage> {
   final _nomeEventoController = TextEditingController();
   final _telefoneController = TextEditingController();
   final _convidadoController = TextEditingController();

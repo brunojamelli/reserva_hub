@@ -24,7 +24,7 @@ class ReservaRepository {
       );
 
       // 2. Cria a reserva
-      await _dio.post('/reserva', data: reserva.toJson());
+      await _dio.post('/reservas', data: reserva.toJson());
     } catch (e) {
       print('Erro ao realizar reserva: $e');
       rethrow;

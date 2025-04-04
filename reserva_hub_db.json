@@ -32,13 +32,16 @@
         "frigobar",
         "wi-fi"
       ],
-	  "convidados": [
+      "convidados": [
         "Jõao",
         "Jose"
       ],
-	  "dias_indisponiveis": [
+      "dias_indisponiveis": [
         "2023-06-10",
-        "2023-06-15"
+        "2023-06-15",
+        "2025-04-10",
+        "2025-05-01",
+        "2025-04-04"
       ],
       "regras": "Uso até 22h. Limpeza obrigatória.",
       "horario_abertura": "08:00",
@@ -54,16 +57,16 @@
         "rede vôlei",
         "traves futebol"
       ],
-	  "convidados": [
+      "convidados": [
         "Jõao",
         "Jose"
       ],
-	  "dias_indisponiveis": [
+      "dias_indisponiveis": [
         "2023-06-10",
         "2023-06-15"
       ],
-	  "regras": "Uso de calçados esportivos.",
-	  "horario_abertura": "08:00",
+      "regras": "Uso de calçados esportivos.",
+      "horario_abertura": "08:00",
       "horario_fechamento": "17:00"
     }
   ],
@@ -71,7 +74,7 @@
     {
       "id": "1",
       "id_espaco": "1",
-	  "id_usuario" : "1",
+      "id_usuario": "1",
       "data": "2023-06-12",
       "hora_inicio": "19:00",
       "hora_fim": "22:00",
@@ -83,6 +86,70 @@
       "telefone_contato": "(11) 99999-9999",
       "status": "confirmada",
       "data_reserva": "2023-05-20T14:30:00Z"
+    },
+    {
+      "id": "f0bd",
+      "id_espaco": "1",
+      "id_usuario": "1",
+      "data": "2025-05-01",
+      "hora_inicio": "14:06",
+      "hora_fim": "22:06",
+      "nome_evento": "aniversário bruno",
+      "convidados": [
+        "teste",
+        "teste 2"
+      ],
+      "telefone_contato": "1111111111",
+      "status": "confirmada",
+      "data_reserva": "2025-04-04T15:06:40.037260Z"
+    },
+    {
+      "id": "d7c1",
+      "id_espaco": "1",
+      "id_usuario": "1",
+      "data": "2025-05-01",
+      "hora_inicio": "14:06",
+      "hora_fim": "22:06",
+      "nome_evento": "aniversário bruno",
+      "convidados": [
+        "teste",
+        "teste 2",
+        "aaaaaa"
+      ],
+      "telefone_contato": "1111111111",
+      "status": "confirmada",
+      "data_reserva": "2025-04-04T15:07:45.598391Z"
+    },
+    {
+      "id": "b0b3",
+      "id_espaco": "1",
+      "id_usuario": "1",
+      "data": "2025-05-01",
+      "hora_inicio": "14:08",
+      "hora_fim": "19:08",
+      "nome_evento": "aaa",
+      "convidados": [
+        "p1",
+        "p2"
+      ],
+      "telefone_contato": "99999999",
+      "status": "confirmada",
+      "data_reserva": "2025-04-04T15:08:26.421950Z"
+    },
+    {
+      "id": "f6d3",
+      "id_espaco": "1",
+      "id_usuario": "1",
+      "data": "2025-04-04",
+      "hora_inicio": "12:09",
+      "hora_fim": "18:09",
+      "nome_evento": "aaaaaa",
+      "convidados": [
+        "aaa"
+      ],
+      "telefone_contato": "0000000000",
+      "status": "confirmada",
+      "data_reserva": "2025-04-04T15:09:20.257746Z"
     }
   ],
   "comunicados": [

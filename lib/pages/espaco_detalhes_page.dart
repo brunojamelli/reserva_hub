@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reserva_hub/pages/nova_reserva_page.dart';
 import '../models/espaco_model.dart';
 
 class EspacoDetalhesPage extends StatelessWidget {
@@ -169,6 +170,14 @@ class EspacoDetalhesPage extends StatelessWidget {
         ),
         onPressed: () {
           // TODO: Implementar navegação para tela de reserva
+           Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => NovaReservaPage(
+              espaco: espaco, // se quiser passar o espaço
+            ),
+          ),
+        );
         },
         child: const Text(
           'RESERVAR AGORA',
