@@ -30,6 +30,11 @@ class ComunicadoRepository {
       
       return limit > 0 ? todosComunicados.take(limit).toList() : todosComunicados;
     } on DioException catch (e) {
+      print('Erro na requisição Dio:');
+      print('Mensagem: ${e.message}');
+      print('Status code: ${e.response?.statusCode}');
+      print('Response: ${e.response?.data}');
+      print('Tipo: ${e.type}');
       throw Exception('Falha ao carregar comunicados: ${e.message}');
     }
   }

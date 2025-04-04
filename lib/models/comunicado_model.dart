@@ -5,7 +5,7 @@ class Comunicado {
   final DateTime dataEnvio;
   final String prioridade;
   final String categoria;
-  final bool lido;
+  String? anexo;
 
   Comunicado({
     required this.id,
@@ -14,7 +14,7 @@ class Comunicado {
     required this.dataEnvio,
     required this.prioridade,
     required this.categoria,
-    required this.lido,
+    this.anexo,
   });
 
   factory Comunicado.fromJson(Map<String, dynamic> json) {
@@ -25,7 +25,7 @@ class Comunicado {
       dataEnvio: DateTime.parse(json['data_envio'] as String),
       prioridade: json['prioridade'] as String,
       categoria: json['categoria'] as String,
-      lido: (json['lido_por'] as List).isNotEmpty, // Verifica se foi lido
+      anexo: json['anexo'] != null ? json['anexo'] as String : null,
     );
   }
 }

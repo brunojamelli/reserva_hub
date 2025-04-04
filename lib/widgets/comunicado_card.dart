@@ -38,8 +38,8 @@ class ComunicadoCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  if (!comunicado.lido)
-                    const Icon(Icons.circle, color: Colors.blue, size: 12),
+                  // if (!comunicado.lido)
+                  //   const Icon(Icons.circle, color: Colors.blue, size: 12),
                 ],
               ),
               if (!compact) const SizedBox(height: 4),

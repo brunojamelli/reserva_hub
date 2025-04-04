@@ -161,9 +161,6 @@
       "id_remetente": 2,
       "prioridade": "alta",
       "categoria": "manutenção",
-      "lido_por": [
-        1
-      ],
       "anexo": "base64_ou_url"
     },
     {
@@ -174,11 +171,6 @@
       "id_remetente": 1,
       "prioridade": "media",
       "categoria": "administrativo",
-      "lido_por": [
-        1,
-        2,
-        5
-      ],
       "anexo": "https://exemplo.com/ata.pdf"
     },
     {
@@ -189,7 +181,6 @@
       "id_remetente": 3,
       "prioridade": "media",
       "categoria": "áreas comuns",
-      "lido_por": [],
       "anexo": null
     },
     {
@@ -200,9 +191,6 @@
       "id_remetente": 1,
       "prioridade": "baixa",
       "categoria": "financeiro",
-      "lido_por": [
-        4
-      ],
       "anexo": "base64_ou_url"
     },
     {
@@ -213,83 +201,6 @@
       "id_remetente": 2,
       "prioridade": "alta",
       "categoria": "segurança",
-      "lido_por": [
-        1,
-        2,
-        3,
-        4
-      ],
-      "anexo": null
-    },
-    {
-      "id": "6",
-      "titulo": "Novo Horário de Funcionamento do Salão",
-      "mensagem": "A partir de 01/06, o salão de festas funcionará até as 23h durante a semana e até 1h nos fins de semana.",
-      "data_envio": "2023-05-03T15:10:00Z",
-      "id_remetente": 3,
-      "prioridade": "baixa",
-      "categoria": "áreas comuns",
-      "lido_por": [
-        5
-      ],
-      "anexo": null
-    },
-    {
-      "id": "7",
-      "titulo": "Obras no Estacionamento",
-      "mensagem": "As vagas de 101 a 110 estarão interditadas para reforma do piso entre os dias 15/05 e 20/05.",
-      "data_envio": "2023-05-02T09:30:00Z",
-      "id_remetente": 2,
-      "prioridade": "media",
-      "categoria": "manutenção",
-      "lido_por": [
-        1,
-        3
-      ],
-      "anexo": "base64_ou_url"
-    },
-    {
-      "id": "3ac3",
-      "titulo": "teste",
-      "mensagem": "novo",
-      "data_envio": "2025-04-03T23:31:24.937982",
-      "id_remetente": 1,
-      "prioridade": "normal",
-      "categoria": "geral",
-      "lido_por": [],
-      "anexo": null
-    },
-    {
-      "id": "d48f",
-      "titulo": "novo de agora ",
-      "mensagem": "novo",
-      "data_envio": "2025-04-03T23:35:04.172901",
-      "id_remetente": 1,
-      "prioridade": "normal",
-      "categoria": "geral",
-      "lido_por": [],
-      "anexo": null
-    },
-    {
-      "id": "450c",
-      "titulo": "novo",
-      "mensagem": "novo de agora ",
-      "data_envio": "2025-04-03T23:36:48.338468",
-      "id_remetente": 1,
-      "prioridade": "normal",
-      "categoria": "geral",
-      "lido_por": [],
-      "anexo": null
-    },
-    {
-      "id": "0c8f",
-      "titulo": "limpeza piscina",
-      "mensagem": "a piscina estará disponível novamente as 13:45",
-      "data_envio": "2025-04-03T23:39:01.038173",
-      "id_remetente": 1,
-      "prioridade": "normal",
-      "categoria": "manutenção",
-      "lido_por": [],
       "anexo": null
     }
   ],

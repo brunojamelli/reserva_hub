@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reserva_hub/pages/home_screen.dart';
+import 'package:reserva_hub/pages/login_page.dart';
 import 'pages/espacos_page.dart';
 import 'pages/reservas_screen.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(), // Tela com BottomNavigationBar
+      home: const LoginPage(), // Tela com BottomNavigationBar
       debugShowCheckedModeBanner: false,
     );
   }
