@@ -25,6 +25,7 @@ class _NovaOcorrenciaScreenState extends State<NovaOcorrenciaScreen> {
     _formKey.currentState!.save();
 
     final novaOcorrencia = Ocorrencia(
+      id: '',
       idUsuario: 1, // ou obtenha do login
       tipo: _tipo!,
       local: _local!,
@@ -65,7 +66,7 @@ class _NovaOcorrenciaScreenState extends State<NovaOcorrenciaScreen> {
             children: [
               DropdownButtonFormField<String>(
                 decoration: InputDecoration(labelText: 'Tipo'),
-                items: ['segurança', 'limpeza', 'outros']
+                items: ['segurança', 'limpeza', 'eletrico','hidráulico', 'outros']
                     .map((tipo) => DropdownMenuItem(
                           value: tipo,
                           child: Text(tipo),

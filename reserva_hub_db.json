@@ -371,32 +371,6 @@
           "data": "2023-05-10T08:30:00Z"
         }
       ]
-    },
-    {
-      "id": "68fb",
-      "id_usuario": 1,
-      "tipo": "segurança",
-      "local": "a",
-      "descricao": "aaa",
-      "fotos": []
-    },
-    {
-      "id": null,
-      "id_usuario": 1,
-      "tipo": "outros",
-      "local": "qaaaaa",
-      "descricao": "aaaaaaa",
-      "data_registro": "2025-04-04T10:34:56.288053",
-      "fotos": []
-    },
-    {
-      "id": null,
-      "id_usuario": 1,
-      "tipo": "outros",
-      "local": "novo novo hovo",
-      "descricao": "novoocococoic",
-      "data_registro": "2025-04-04T10:35:09.291054",
-      "fotos": []
     }
   ],
   "configuracoes": {

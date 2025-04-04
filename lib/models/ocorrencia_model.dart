@@ -45,13 +45,13 @@ class Ocorrencia {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'id_usuario': idUsuario,
       'tipo': tipo,
       'local': local,
       'descricao': descricao,
       'data_registro': dataRegistro?.toIso8601String(),
       'fotos': fotos,
+      'status': status
 
     };
   }
