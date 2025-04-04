@@ -11,7 +11,7 @@ class UltimosComunicados extends StatelessWidget {
   Widget build(BuildContext context) {
     final ComunicadoRepository _repository = ComunicadoRepository();
     final Future<List<Comunicado>> _futureComunicados = 
-        _repository.fetchComunicados(limit: 2);
+        _repository.fetchComunicados(limit: 3);
 
     return FutureBuilder<List<Comunicado>>(
       future: _futureComunicados,
@@ -21,6 +21,10 @@ class UltimosComunicados extends StatelessWidget {
         } else if (snapshot.hasError || !snapshot.hasData || snapshot.data!.isEmpty) {
           return const SizedBox.shrink(); // Não mostra se não houver dados
         } else {
+          final comunicadosOrdenados = snapshot.data!
+            ..sort((a, b) => b.dataEnvio.compareTo(a.dataEnvio));
+          
+          final top2 = comunicadosOrdenados.take(2).toList();
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -34,31 +38,13 @@ class UltimosComunicados extends StatelessWidget {
                   ),
                 ),
               ),
-              ...snapshot.data!.map((comunicado) => Padding(
+              ...top2.map((comunicado) => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: ComunicadoCard(
                   comunicado: comunicado,
                   compact: true, // Adicione esta propriedade ao seu ComunicadoCard
                 ),
               )).toList(),
-              // Padding(
-              //   padding: const EdgeInsets.only(right: 16, bottom: 16),
-              //   child: Align(
-              //     alignment: Alignment.centerRight,
-              //     child: TextButton(
-              //       onPressed: () {
-              //         Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //             builder: (context) => const ComunicadosScreen(),
-              //           ),
-              //         );
-              //       },
-              //       child: const Text('Ver todos os comunicados'),
-              //     ),
-              //   ),
-              // ),
-              // const Divider(height: 1),
             ],
           );
         }
