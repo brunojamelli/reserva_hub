@@ -56,6 +56,10 @@ flutter run
 |:--:|:--:|:--:|
 | **Nova Ocorrência** | **Comunicados** | **Financeiro** |
 
+| ![](screenshots/espacos.jpg) | ![](screenshots/detalhes_espaco.jpg) | ![](screenshots/realizar_reserva.jpg) |
+|:--:|:--:|:--:|
+| **Espaços** | **Detalhes Espaço** | **Realizar Reserva** |
+
 
 ### Libs Utilizadas
 - dio 
