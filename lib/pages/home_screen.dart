@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reserva_hub/models/usuario_model.dart';
 import 'package:reserva_hub/pages/comunicados_screen.dart';
 import 'package:reserva_hub/pages/financeiro_screen.dart';
 import 'package:reserva_hub/pages/login_page.dart';
@@ -17,6 +18,21 @@ class HomeScreen extends StatefulWidget  {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  UsuarioModel? _usuario;
+
+  @override
+  void initState() {
+    super.initState();
+    _carregarUsuario();
+  }
+  
+  Future<void> _carregarUsuario() async {
+    final user = await UserStorageService().getUser();
+    setState(() {
+      _usuario = user;
+    });
+  }
+
   Future<void> _logout() async {
     await UserStorageService().logout();
 
@@ -51,6 +67,19 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+             // Saudação
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                _usuario != null
+                    ? 'Olá, ${_usuario!.nome} 👋'
+                    : 'Olá, visitante 👋',
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
             // Widget dos últimos comunicados
             const UltimosComunicados(),
             
