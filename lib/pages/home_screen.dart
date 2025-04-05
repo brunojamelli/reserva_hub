@@ -1,13 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:reserva_hub/pages/comunicados_screen.dart';
 import 'package:reserva_hub/pages/financeiro_screen.dart';
+import 'package:reserva_hub/pages/login_page.dart';
 import 'package:reserva_hub/pages/ocorrencia_screen.dart';
+import 'package:reserva_hub/services/user_storage_service.dart';
 import 'package:reserva_hub/widgets/ultimos_comunicados.dart';
 import 'espacos_page.dart';
 import 'reservas_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget  {
   const HomeScreen({super.key});
+
+   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  Future<void> _logout() async {
+    await UserStorageService().logout();
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Logout realizado com sucesso')),
+      );
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (_) => const LoginPage()),
+        (route) => false,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +39,13 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('ReservaHub'),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Sair',
+            onPressed: _logout,
+          ),
+        ],
       ),
 
       body: SingleChildScrollView(

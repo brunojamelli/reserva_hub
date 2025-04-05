@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reserva_hub/pages/home_screen.dart';
+import 'package:reserva_hub/repositories/auth_repository.dart';
+import 'package:reserva_hub/services/user_storage_service.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -10,38 +12,95 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  @override
+  void initState() {
+    super.initState();
+    _checkLoginStatus();
+  }
+
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _senhaController = TextEditingController();
   bool _isLoading = false;
 
+  // Future<void> _login() async {
+  //   if (!_formKey.currentState!.validate()) return;
+
+  //   setState(() => _isLoading = true);
+
+  //   try {
+  //     await Future.delayed(const Duration(seconds: 2));
+
+  //     if (mounted) {
+  //       ScaffoldMessenger.of(context).showSnackBar(
+  //         const SnackBar(content: Text('Login realizado com sucesso!')),
+  //       );
+  //       Navigator.pushReplacement(
+  //         context,
+  //         MaterialPageRoute(builder: (_) => HomeScreen()),
+  //       );
+  //     }
+  //   } catch (e) {
+  //     if (mounted) {
+  //       ScaffoldMessenger.of(context).showSnackBar(
+  //         SnackBar(content: Text('Erro ao fazer login: $e')),
+  //       );
+  //     }
+  //   } finally {
+  //     if (mounted) setState(() => _isLoading = false);
+  //   }
+  // }
   Future<void> _login() async {
     if (!_formKey.currentState!.validate()) return;
 
     setState(() => _isLoading = true);
 
     try {
-      await Future.delayed(const Duration(seconds: 2));
+      final repository = AuthRepository();
+      final usuario = await repository.login(_emailController.text, _senhaController.text);
 
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Login realizado com sucesso!')),
-        );
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (_) => HomeScreen()),
-        );
+      if (usuario != null) {
+        // Salva o usuário localmente
+        await UserStorageService().saveUser(usuario);
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Bem-vindo, ${usuario.nome}!')),
+          );
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (_) => HomeScreen()),
+          );
+        }
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('E-mail ou senha inválidos')),
+          );
+        }
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Erro ao fazer login: $e')),
+          SnackBar(content: Text('Erro: $e')),
         );
       }
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
   }
+
+  Future<void> _checkLoginStatus() async {
+    final user = await UserStorageService().getUser();
+    if (user != null && mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => HomeScreen()),
+      );
+    }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
