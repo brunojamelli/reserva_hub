@@ -30,4 +30,16 @@ class ReservaRepository {
       rethrow;
     }
   }
+
+  Future<List<Reserva>> fetchReservas() async {
+    final response = await _dio.get('http://192.168.1.66:3000/reservas');
+
+    if (response.statusCode == 200) {
+      return (response.data as List)
+          .map((json) => Reserva.fromJson(json))
+          .toList();
+    } else {
+      throw Exception('Erro ao buscar reservas');
+    }
+  }
 }
