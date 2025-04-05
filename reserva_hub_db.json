@@ -16,7 +16,21 @@
       "nome": "Administração",
       "email": "admin@condominio.com",
       "senha": "admin123",
-      "tipo": "admin"
+	  "apartamento": "103A",
+      "bloco": "A",
+      "tipo": "admin",
+	  "token_notificacao": "abc123"
+    },
+	{
+      "id": "3",
+      "nome": "brunojamelli",
+      "email": "brunojamelli09@gmail.com",
+      "senha": "senha321",
+      "apartamento": "202B",
+      "bloco": "A",
+      "tipo": "morador",
+      "telefone": "(11) 99999-9999",
+      "token_notificacao": "abc123"
     }
   ],
   "espacos": [
@@ -41,7 +55,8 @@
         "2023-06-15",
         "2025-04-10",
         "2025-05-01",
-        "2025-04-04"
+        "2025-04-04",
+        "2025-04-25"
       ],
       "regras": "Uso até 22h. Limpeza obrigatória.",
       "horario_abertura": "08:00",
@@ -150,6 +165,23 @@
       "telefone_contato": "0000000000",
       "status": "confirmada",
       "data_reserva": "2025-04-04T15:09:20.257746Z"
+    },
+    {
+      "id": "a47e",
+      "id_espaco": "1",
+      "id_usuario": "1",
+      "data": "2025-04-25",
+      "hora_inicio": "13:46",
+      "hora_fim": "18:46",
+      "nome_evento": "aniversário ",
+      "convidados": [
+        "João",
+        "bruno",
+        "maria"
+      ],
+      "telefone_contato": "9999999999",
+      "status": "confirmada",
+      "data_reserva": "2025-04-04T16:46:44.138520Z"
     }
   ],
   "comunicados": [
