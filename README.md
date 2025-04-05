@@ -46,5 +46,12 @@ flutter run
 ```
 ---
 
+### Libs Utilizadas
+- dio 
+- flutter_launcher_icons
+- flutter_native_splash
+- intl
+- shared_preferences
+
 ## Equipe
 Bruno Jamelli e Cintia Nunes
