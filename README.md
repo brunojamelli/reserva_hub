@@ -46,6 +46,17 @@ flutter run
 ```
 ---
 
+## 📸 Capturas de Tela
+
+| ![Tela Inicial](screenshots/print01.jpeg) | ![Minhas Reservas](screenshots/print02.jpeg) | ![](screenshots/print03.jpeg) |
+|:--:|:--:|:--:|
+| **Tela Inicial** | **Minhas Reservas** | **Detalhes da Reserva** |
+
+| ![Detalhes da Reserva](screenshots/nova_ocorrencia.jpeg) | ![Nova Ocorrência](screenshots/comunicados.jpeg) | ![Nova Ocorrência](screenshots/financeiro.jpeg) |
+|:--:|:--:|:--:|
+| **Nova Ocorrência** | **Comunicados** | **Financeiro** |
+
+
 ### Libs Utilizadas
 - dio 
 - flutter_launcher_icons
